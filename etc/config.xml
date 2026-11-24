@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <global_geodata_params>
+            <geodata>
+                <handle_cookies>1</handle_cookies>
+                <geodata_requests>0</geodata_requests>
+            </geodata>
+        </global_geodata_params>
+    </default>
+</config>

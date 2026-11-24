@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Scue\Geo\Api\DictionaryRepositoryInterface" type="Scue\Geo\Model\Repository\Dictionary"/>
+    <preference for="Scue\Geo\Api\CityFetchService" type="Scue\Geo\Service\CityFetch"/>
+    <preference for="Scue\Geo\Api\Data\Dictionary" type="Scue\Geo\Model\Dictionary"/>
+
+    <type name="Scue\Geo\Model\Repository\Dictionary\AdapterFactory">
+        <arguments>
+            <argument name="adapters" xsi:type="array">
+                <item name="geodata" xsi:type="string">Scue\Geo\Model\Repository\Dictionary\Adapter\Geodata</item>
+                <item name="novaposhta" xsi:type="string">Scue\Geo\Model\Repository\Dictionary\Adapter\Novaposhta</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Scue\Geo\Service\CityFetch\StrategyFactory">
+        <arguments>
+            <argument name="strategies" xsi:type="array">
+                <item name="cookie" xsi:type="string">Scue\Geo\Service\CityFetch\Strategy\Cookie</item>
+                <item name="ip" xsi:type="string">Scue\Geo\Service\CityFetch\Strategy\IP</item>
+                <item name="config" xsi:type="string">Scue\Geo\Service\CityFetch\Strategy\Config</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Scue\Geo\Service\CityFetch">
+        <arguments>
+            <argument name="strategies" xsi:type="array">
+                <item name="ip" xsi:type="string">ip</item>
+                <item name="config" xsi:type="string">config</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Scue\Geodata\Helper\Data">
+        <plugin name="geodata_log_plugin" type="Scue\Geo\Plugin\GeodataLogPlugin" sortOrder="10"/>
+    </type>
+</config>

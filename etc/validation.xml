@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<validation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Validator/etc/validation.xsd">
+    <entity name="scue_geo">
+        <rules>
+            <rule name="query_length">
+                <entity_constraints>
+                    <constraint alias="query_length" class="Scue\Geo\Validation\Validator\QueryLength" />
+                </entity_constraints>
+            </rule>
+        </rules>
+        <groups>
+            <group name="request">
+                <uses>
+                    <use rule="query_length"/>
+                </uses>
+            </group>
+        </groups>
+    </entity>
+</validation>
